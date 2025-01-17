@@ -1,0 +1,47 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #F8F9FA;
+}
+
+#root{
+    display: flex;
+    justify-content: center;
+    padding-block: 30px;
+}
+
+main{
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+}
+
+main > div{
+    width: 100%;
+    border-right: 2px solid rgb(255, 0, 0);
+    padding:20px;
+    height:600px;
+    overflow: scroll;
+}
+
+.inputContainer > div + div, #showSelectedInputs > div + div{
+    margin-top:20px;
+}
+
+.MuiFormControl-root{
+    justify-content: start;
+}
+
+input {
+    margin-left: 30px !important;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
