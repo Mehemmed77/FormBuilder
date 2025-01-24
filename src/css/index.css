@@ -4,44 +4,104 @@
     padding: 0;
 }
 
-body{
-    background-color: #F8F9FA;
+html{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(227, 251, 251);
 }
 
 #root{
-    display: flex;
-    justify-content: center;
-    padding-block: 30px;
-}
-
-main{
     width: 100%;
-    max-width: 1280px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.mainContainer {
     display: flex;
+    gap: 20px;
 }
 
-main > div{
-    width: 100%;
-    border-right: 2px solid rgb(255, 0, 0);
-    padding:20px;
-    height:600px;
-    overflow: scroll;
+.inputElement, #formHeader, #formElements {
+    background-color: white;
 }
 
-.inputContainer > div + div, #showSelectedInputs > div + div{
+#root > div{
+    padding: 5px;
+}
+
+#formElements{
+    width: 25%;
+    border-radius: 5px;
+}
+
+#formCreator {
+    width: 75%;
+    border-radius: 5px;
+}
+
+.element{
+    border: 2px solid rgba(0, 0, 0, 0.703);
+    border-radius: 4px;
+    padding:8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#formHeader{
+    margin-block-start: 1em;
+    padding:15px;
+}
+
+#formHeader > div + div{
     margin-top:20px;
 }
 
-.MuiFormControl-root{
-    justify-content: start;
+.inputTitle > input{
+    padding:15px;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
-input {
-    margin-left: 30px !important;
+.inputDescription > textarea{
+    resize: vertical;
+    width:100%;
+    padding:10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
-form{
+.inputElement{
+    margin-top:20px;
+    padding:20px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    gap:20px;
+    border-radius: 10px;
+}
+
+.innerDiv{
+    display: flex;
+    gap:15px;
+    align-items: center;
+}
+
+.innerDiv:nth-child(2){
+    margin-block-start: 20px;
+}
+
+.optionMainContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    align-items: center;
+}
+
+.optionContainer {
+    display: flex;
+    align-items: center;
+    gap:10px;
 }
