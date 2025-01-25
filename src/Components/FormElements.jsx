@@ -16,7 +16,7 @@ export default function FormElements() {
                 <hr />
 
                 <Stack sx={{marginBlockStart: "20px"}} spacing={2}>
-                    <div className="element" type="short text" style={{cursor:"pointer"}} onClick={handleClick} >Short Text <PlaylistAddIcon /> </div>
+                    <div className="element" type="short text" style={{cursor:"pointer"}} onClick={handleClick}>Short Text <PlaylistAddIcon /> </div>
                     <div className="element" type="long text" style={{cursor:"pointer"}} onClick={handleClick}>Long Text <PlaylistAddIcon /> </div>
                     <div className="element" type="optons" style={{cursor:"pointer"}} onClick={handleClick}>Multiple Choice <PlaylistAddIcon /> </div>
                     <div className="element" type="checkbox" style={{cursor:"pointer"}} onClick={handleClick}>Checkboxes <PlaylistAddIcon /> </div> 
