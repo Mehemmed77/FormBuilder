@@ -1,7 +1,15 @@
-import InputElement from "./InputElement";
+import React, { useContext } from "react";
+import MyContext from "./Context";
+import { v4 as id } from 'uuid';
 
 export default function InputElementsContainer () {
+    const {elements, addElement} = useContext(MyContext);
+
     return <>
-        <InputElement />
+        {elements.map( (e) => {
+            return <React.Fragment key={id()}>
+                {e.jsx}
+            </React.Fragment>
+        })}
     </>
 }

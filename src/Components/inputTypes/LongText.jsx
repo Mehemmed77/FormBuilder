@@ -1,6 +1,7 @@
 import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function LongText() {
     return <>
@@ -17,6 +18,7 @@ export default function LongText() {
                     <FormControlLabel control={<Switch />} label="Required?" />
                 </div>
             </div>
+            <DeleteIcon sx={{position:"absolute", top: "10px",right:"10px", color:"red", cursor:"pointer"}} />
         </div>
     </>
 }

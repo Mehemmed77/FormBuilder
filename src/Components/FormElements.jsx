@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import data from "./obj";
+import MyContext from "./Context";
 
 export default function FormElements() {
+    const {elements, addElement} = useContext(MyContext);
 
     const handleClick = (e) => {
-        console.log(e.target);
+        let new_element = data[e];
+        addElement(new_element);
     };
 
     return <>
@@ -16,11 +20,11 @@ export default function FormElements() {
                 <hr />
 
                 <Stack sx={{marginBlockStart: "20px"}} spacing={2}>
-                    <div className="element" type="short text" style={{cursor:"pointer"}} onClick={handleClick}>Short Text <PlaylistAddIcon /> </div>
-                    <div className="element" type="long text" style={{cursor:"pointer"}} onClick={handleClick}>Long Text <PlaylistAddIcon /> </div>
-                    <div className="element" type="optons" style={{cursor:"pointer"}} onClick={handleClick}>Multiple Choice <PlaylistAddIcon /> </div>
-                    <div className="element" type="checkbox" style={{cursor:"pointer"}} onClick={handleClick}>Checkboxes <PlaylistAddIcon /> </div> 
-                    <div className="element" type="radio" style={{cursor:"pointer"}} onClick={handleClick}>Radio <PlaylistAddIcon /> </div>
+                    <div className="element">Short Text <PlaylistAddIcon onClick={() => handleClick("short text")} sx={{cursor:"pointer"}} /> </div>
+                    <div className="element">Long Text <PlaylistAddIcon onClick={() => handleClick("long text")} sx={{cursor:"pointer"}} /> </div>
+                    <div className="element">Multiple Choice <PlaylistAddIcon onClick={() => handleClick("options")} sx={{cursor:"pointer"}} /> </div>
+                    <div className="element">Checkboxes <PlaylistAddIcon onClick={() => handleClick("checkbox")} sx={{cursor:"pointer"}} /> </div> 
+                    <div className="element">Radio <PlaylistAddIcon onClick={() => handleClick("radio")} sx={{cursor:"pointer"}} /> </div>
                 </Stack>
             </Box>
         </div>

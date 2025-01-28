@@ -1,6 +1,7 @@
 import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Radio() {
     return <>
@@ -14,6 +15,7 @@ export default function Radio() {
                     <FormControlLabel control={<Switch />} label="Disabled?" />
                 </div>
             </div>
+            <DeleteIcon sx={{position:"absolute", top: "10px",right:"10px", color:"red", cursor:"pointer"}} />
         </div>
     </>
 }

@@ -2,6 +2,7 @@ import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import OptionAdder from "../OptionAdder";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Options() {
     return <>
@@ -17,6 +18,7 @@ export default function Options() {
                     <OptionAdder />
                 </div>
             </div>
+            <DeleteIcon sx={{position:"absolute", top: "10px",right:"10px", color:"red", cursor:"pointer"}} />
         </div>
     </>
 }
