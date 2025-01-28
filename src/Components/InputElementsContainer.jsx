@@ -7,7 +7,7 @@ export default function InputElementsContainer () {
 
     return <>
         {elements.map( (e) => {
-            return <React.Fragment key={id()}>
+            return <React.Fragment key={e.id}>
                 {e.jsx}
             </React.Fragment>
         })}

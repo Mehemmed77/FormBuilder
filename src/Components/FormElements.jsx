@@ -2,15 +2,15 @@ import React, { useContext } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
-import data from "./obj";
 import MyContext from "./Context";
+import getFormType from "./getFormType";
+import { v4 as id } from 'uuid';
 
 export default function FormElements() {
     const {elements, addElement} = useContext(MyContext);
 
     const handleClick = (e) => {
-        let new_element = data[e];
-        addElement(new_element);
+        addElement(getFormType(e, id()));
     };
 
     return <>

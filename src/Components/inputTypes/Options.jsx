@@ -3,8 +3,12 @@ import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import OptionAdder from "../OptionAdder";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useContext } from 'react';
+import MyContext from '../Context';
 
-export default function Options() {
+export default function Options({id}) {
+    const {deleteElement} = useContext(MyContext);
+
     return <>
         <div className="inputElement">
             <h3>Input Type: Multiple Choice</h3>
@@ -18,7 +22,7 @@ export default function Options() {
                     <OptionAdder />
                 </div>
             </div>
-            <DeleteIcon sx={{position:"absolute", top: "10px",right:"10px", color:"red", cursor:"pointer"}} />
+            <DeleteIcon sx={{position:"absolute", top: "10px",right:"10px", color:"red", cursor:"pointer"}} onClick={() => deleteElement(id)} />
         </div>
     </>
 }

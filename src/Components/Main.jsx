@@ -9,13 +9,17 @@ export default function Main() {
 
     const addElement = useCallback((element) =>
         {
-            setElements((prev) => [...prev, {id: generateId(), jsx: element}])
+            setElements((prev) => [...prev, {id: element.props.id, jsx: element}])
         }
     ,[]);
 
+    const deleteElement = useCallback( (id) => {
+        setElements((prev) => prev.filter((e) => e.id !== id));
+    }, []);
+
     return <>
         <div className="mainContainer">
-            <MyContext.Provider value={{elements, addElement}}>
+            <MyContext.Provider value={{elements, addElement, deleteElement}}>
                 <FormElements></FormElements>
                 <FormCreator></FormCreator>
             </MyContext.Provider>

@@ -7,13 +7,16 @@ import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useContext } from "react";
+import MyContext from "../Context";
 
-export default function ShortText() {
+export default function ShortText({id}) {
     const [type, setType] = useState('text');
+    const {deleteElement} = useContext(MyContext);
 
     const handleChange = (e) => {
         setType(e.target.value);
-    }
+    };
 
     return <>
         <div className="inputElement">
@@ -37,7 +40,7 @@ export default function ShortText() {
                     <FormControlLabel control={<Switch />} label="Required?" />
                 </div>
             </div>
-            <DeleteIcon sx={{position:"absolute", top: "10px",right:"10px", color:"red", cursor:"pointer"}} />
+            <DeleteIcon sx={{position:"absolute", top: "10px",right:"10px", color:"red", cursor:"pointer"}} onClick={() => deleteElement(id)} />
         </div>
     </>
 }
