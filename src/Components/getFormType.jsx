@@ -8,19 +8,19 @@ export default function getFormType(type, id, formRef) {
     let formElement;
     switch (type) {
         case "short text":
-            formElement = <ShortText id={id} formRef={formRef}/>
+            formElement = <ShortText id={id} formRef={formRef} inputType={type}/>
             break;
         case "long text":
-            formElement = <LongText id={id} formRef={formRef}/>
+            formElement = <LongText id={id} formRef={formRef} inputType={type} />
             break;
         case "options":
-            formElement = <Options id={id} formRef={formRef}/>
+            formElement = <Options id={id} formRef={formRef} inputType={type} />
             break;
         case "radio":
-            formElement = <Radio id={id} formRef={formRef}/>
+            formElement = <Radio id={id} formRef={formRef} inputType={type} />
             break;
         case "checkbox":
-            formElement = <Checkbox id={id} formRef={formRef}/>
+            formElement = <Checkbox id={id} formRef={formRef} inputType={type} />
             break;
     }
 

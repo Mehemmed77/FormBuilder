@@ -10,7 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useContext } from "react";
 import MyContext from "../Context";
 
-export default function ShortText({id, formRef}) {
+export default function ShortText({id, formRef, inputType}) {
     const [type, setType] = useState('text');
     const {deleteElement} = useContext(MyContext);
 
@@ -38,7 +38,7 @@ export default function ShortText({id, formRef}) {
                                     <MenuItem value={"password"}>Password</MenuItem>
                                 </Select>
                         </FormControl>
-                        <FormControlLabel control={<Switch />} label="Required?" />
+                        <FormControlLabel name="required" control={<Switch inputProps={{ name: "required" }} />} label="Required?" />
                     </div>
                 </form>
             </div>

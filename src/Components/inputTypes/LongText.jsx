@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useContext } from 'react';
 import MyContext from '../Context';
 
-export default function LongText({id, formRef}) {
+export default function LongText({id, formRef, inputType}) {
     const {deleteElement} = useContext(MyContext);
 
     return <>
@@ -20,7 +20,7 @@ export default function LongText({id, formRef}) {
                         <TextField name="value" label="Enter default value" variant="outlined" />
                     </div>
                     <div className="innerDiv">
-                        <FormControlLabel name='required' control={<Switch />} label="Required?" />
+                        <FormControlLabel name='required' control={<Switch inputProps={{ name: "required" }} />} label="Required?" />
                     </div>
                 </form>
             </div>

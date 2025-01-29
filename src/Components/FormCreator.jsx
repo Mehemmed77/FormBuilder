@@ -3,6 +3,7 @@ import InputElementsContainer from "./InputElementsContainer";
 import Button from '@mui/material/Button';
 import { useContext } from "react";
 import MyContext from "./Context";
+import CreateHTML from "./CreateHTML";
 
 export default function FormCreator () {
     const { elements } = useContext(MyContext);
@@ -10,10 +11,10 @@ export default function FormCreator () {
     if (elements.length > 0) display = "block";
 
     const handleClick = () => {
-        for(let element of elements) {
-            const formData = Object.fromEntries(new FormData(element.formRef.current));
-            console.log(formData);
-        }
+        elements.forEach((e) => {
+            const formData = Object.fromEntries(new FormData(e.formRef.current));
+            CreateHTML(e.inputType, formData);
+        });
     }
 
     return <>
