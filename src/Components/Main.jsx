@@ -9,7 +9,7 @@ export default function Main() {
 
     const addElement = useCallback((element) =>
         {
-            setElements((prev) => [...prev, {id: element.props.id, jsx: element}])
+            setElements((prev) => [...prev, {id: element.props.id, jsx: element, formRef: element.props.formRef}])
         }
     ,[]);
 

@@ -6,7 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useContext } from 'react';
 import MyContext from '../Context';
 
-export default function Options({id}) {
+export default function Options({id, formRef}) {
     const {deleteElement} = useContext(MyContext);
 
     return <>
@@ -14,13 +14,15 @@ export default function Options({id}) {
             <h3>Input Type: Multiple Choice</h3>
             
             <div>
-                <div className="innerDiv">
-                    <TextField name="label" label="Enter Label" variant="outlined" />
-                    <FormControlLabel control={<Switch />} label="Required?" />
-                </div>
-                <div className="innerDiv">
-                    <OptionAdder />
-                </div>
+                <form action="" ref={formRef}>
+                    <div className="innerDiv">
+                        <TextField name="label" label="Enter Label" variant="outlined" />
+                        <FormControlLabel name='required' control={<Switch />} label="Required?" />
+                    </div>
+                    <div className="innerDiv">
+                        <OptionAdder />
+                    </div>
+                </form>
             </div>
             <DeleteIcon sx={{position:"absolute", top: "10px",right:"10px", color:"red", cursor:"pointer"}} onClick={() => deleteElement(id)} />
         </div>

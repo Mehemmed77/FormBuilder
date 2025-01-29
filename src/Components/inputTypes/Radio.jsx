@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useContext } from 'react';
 import MyContext from '../Context';
 
-export default function Radio({id}) {
+export default function Radio({id, formRef}) {
     const {deleteElement} = useContext(MyContext);
 
     return <>
@@ -13,11 +13,13 @@ export default function Radio({id}) {
             <h3>Input Type: Radio</h3>
             
             <div>
-                <div className="innerDiv">
-                    <TextField name="label" label="Enter Label" variant="outlined" />
-                    <FormControlLabel control={<Switch />} label="Required?" />
-                    <FormControlLabel control={<Switch />} label="Disabled?" />
-                </div>
+                <form action="" ref={formRef}>
+                    <div className="innerDiv">
+                        <TextField name="label" label="Enter Label" variant="outlined" />
+                        <FormControlLabel name='required' control={<Switch />} label="Required?" />
+                        <FormControlLabel name='disabled' control={<Switch />} label="Disabled?" />
+                    </div>
+                </form>
             </div>
             <DeleteIcon sx={{position:"absolute", top: "10px",right:"10px", color:"red", cursor:"pointer"}} onClick={() => deleteElement(id)} />
         </div>

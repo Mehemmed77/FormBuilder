@@ -106,3 +106,11 @@ html{
     align-items: center;
     gap:10px;
 }
+
+#generateButton {
+    background-color: white;
+    color: black;
+    float: right;
+    margin-block-start: 10px;
+    font-family: inherit;
+}

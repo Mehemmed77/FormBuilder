@@ -5,12 +5,13 @@ import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import MyContext from "./Context";
 import getFormType from "./getFormType";
 import { v4 as id } from 'uuid';
+import { useRef } from "react";
 
 export default function FormElements() {
     const {elements, addElement} = useContext(MyContext);
 
     const handleClick = (e) => {
-        addElement(getFormType(e, id()));
+        addElement(getFormType(e, id(), React.createRef()));
     };
 
     return <>

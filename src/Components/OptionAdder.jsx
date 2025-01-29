@@ -31,7 +31,7 @@ export default function OptionAdder () {
             </div>
             
             {options.map( (e) => {
-                return <Option key={e.id} text={e.text} id={e.id} handleChange={handleChange} handleDelete={handleDelete}/>
+                return <Option name={`option${e.id}`} key={e.id} text={e.text} id={e.id} handleChange={handleChange} handleDelete={handleDelete}/>
             } )}
         </div>
     </>
