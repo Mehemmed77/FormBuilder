@@ -16,6 +16,7 @@ export default function Checkbox({id, formRef, inputType}) {
                 <form action="" ref={formRef}>
                     <div className="innerDiv">
                         <TextField name="label" label="Enter Label" variant="outlined" />
+                        <TextField name="value" label="Enter Value" variant="outlined" />
                         <FormControlLabel control={<Switch inputProps={{ name: "required" }} />} label="Required?" />
                         <FormControlLabel name='disabled' control={<Switch inputProps={{ name: "disabled" }} />} label="Disabled?" />
                     </div>
