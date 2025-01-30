@@ -4,9 +4,11 @@ import Button from '@mui/material/Button';
 import { useContext } from "react";
 import MyContext from "./Context";
 import CreateHTML from "./CreateHTML";
+import { useNavigate } from "react-router-dom";
 
 export default function FormCreator () {
-    const { elements } = useContext(MyContext);
+    const navigate = useNavigate();
+    const { elements, setForm } = useContext(MyContext);
     let display = "none";
     if (elements.length > 0) display = "block";
 
@@ -18,7 +20,10 @@ export default function FormCreator () {
             formHTML += `<div>\n${CreateHTML(e.id, e.inputType, formData)}\n</div>\n`;
         });
 
-        console.log(formHTML);
+        setForm(formHTML);
+
+        navigate("/form/");
+        
     }
 
     return <>
