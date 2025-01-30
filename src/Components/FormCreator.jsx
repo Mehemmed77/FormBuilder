@@ -14,45 +14,7 @@ export default function FormCreator () {
         elements.forEach((e) => {
             const formData = Object.fromEntries(new FormData(e.formRef.current));
 
-            let inputText = ``;
-            if (e.inputType === "short text") {
-                inputText = `
-                <label for="${e.id}"> ${formData.label} <label />
-                <input type="${formData.type}" placeholder="${formData.placeholder}" value="${formData.value}" 
-                ${formData.required ? "required" : ""}
-                ${formData.disabled ? "disabled" : ""}
-                id="${e.id}" />`
-            }
-
-            else if(e.inputType === "long text") {
-                inputText = `<label for="${e.id}"> ${formData.label} <label />
-                <textarea placeholder="${formData.placeholder}" value="${formData.value}" 
-                ${formData.required ? "required" : ""}
-                ${formData.disabled ? "disabled" : ""}
-                id="${e.id}">< textarea/>`    
-            }
-
-            else if(e.inputType === "radio") {
-                inputText = `<input type="radio" value="${formData.value}" 
-                ${formData.required ? "required" : ""}
-                ${formData.disabled ? "disabled" : ""} 
-                id="${e.id}" />
-                <label for="${e.id}"> ${formData.label} <label />`
-            }
-            else if(e.inputType === "checkbox") {
-                inputText = `<input type="checkbox" value="${formData.value}"
-                ${formData.required ? "required" : ""}
-                ${formData.disabled ? "disabled" : ""} 
-                id="${e.id}" />
-                <label for="${e.id}"> ${formData.label} </label>`
-            }
-
-            else if(e.inputType === "options") {
-                let optionTags = ``;
-                
-            }
-
-            console.log(inputText);
+            console.log(CreateHTML(e.id, e.inputType, formData));
         });
     }
 

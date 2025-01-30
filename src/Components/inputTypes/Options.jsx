@@ -17,7 +17,7 @@ export default function Options({id, formRef, inputType}) {
                 <form action="" ref={formRef}>
                     <div className="innerDiv">
                         <TextField name="label" label="Enter Label" variant="outlined" />
-                        <FormControlLabel name='required' control={<Switch inputProps={{ name: "required" }} />} label="Required?" />
+                        {/* <FormControlLabel name='required' control={<Switch inputProps={{ name: "required" }} />} label="Required?" /> */}
                     </div>
                     <div className="innerDiv">
                         <OptionAdder />
