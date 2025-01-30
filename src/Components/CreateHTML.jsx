@@ -3,31 +3,19 @@ export default function CreateHTML(id, inputType, data) {
 
     let inputText = ``;
     if (inputType === "short text") {
-        inputText = `
-        <label for="${id}"> ${data.label} </label>
-        <input type="${data.type}" placeholder="${data.placeholder}" value="${data.value}"
-        ${attributes}
-        id="${id}" />`
+        inputText = `<label for="${id}"> ${data.label}</label>\n<input type="${data.type}" placeholder="${data.placeholder}" value="${data.value}"${attributes}id="${id}" />`
     }
 
     if(inputType === "long text") {
-        inputText = `<label for="${id}"> ${data.label} <label />
-        <textarea placeholder="${data.placeholder}" value="${data.value}" 
-        ${attributes}
-        id="${id}"></textarea>`    
+        inputText = `<label for="${id}"> ${data.label}</label>\n<textarea placeholder="${data.placeholder}"value="${data.value}"${attributes}id="${id}"></textarea>\n`    
     }
 
     if(inputType === "radio") {
-        inputText = `<input type="radio" value="${data.value}" 
-        ${attributes}
-        id="${id}" />
-        <label for="${id}"> ${data.label} </label>`
+        inputText = `<input type="radio" value="${data.value}"${attributes}id="${id}" />\n<label for="${id}"> ${data.label} </label>`
     }
+
     if(inputType === "checkbox") {
-        inputText = `<input type="checkbox" value="${data.value}"
-        ${attributes}
-        id="${id}" />
-        <label for="${id}"> ${data.label} </label>`
+        inputText = `<input type="checkbox" value="${data.value}"${attributes}id="${id}" />\n<label for="${id}"> ${data.label} </label>`
     }
 
     if (inputType === "options") {

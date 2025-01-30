@@ -11,11 +11,14 @@ export default function FormCreator () {
     if (elements.length > 0) display = "block";
 
     const handleClick = () => {
+        let formHTML = ``;
         elements.forEach((e) => {
             const formData = Object.fromEntries(new FormData(e.formRef.current));
 
-            console.log(CreateHTML(e.id, e.inputType, formData));
+            formHTML += `<div>\n${CreateHTML(e.id, e.inputType, formData)}\n</div>\n`;
         });
+
+        console.log(formHTML);
     }
 
     return <>

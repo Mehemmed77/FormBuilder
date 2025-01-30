@@ -2,6 +2,7 @@ import FormCreator from "./FormCreator";
 import FormElements from "./FormElements";
 import MyContext from "./Context";
 import { useCallback, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function Main() {
     const [elements, setElements] = useState([]);
@@ -18,11 +19,14 @@ export default function Main() {
     }, []);
 
     return <>
-        <div className="mainContainer">
-            <MyContext.Provider value={{elements, addElement, deleteElement}}>
-                <FormElements></FormElements>
-                <FormCreator></FormCreator>
-            </MyContext.Provider>
-        </div>
+        <MyContext.Provider value={{elements, addElement, deleteElement}}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="create/" element=
+                        {<div className="mainContainer"> <FormElements /> <FormCreator /> </div>} 
+                    />
+                </Routes>
+            </BrowserRouter>
+        </MyContext.Provider>
     </>
 }
