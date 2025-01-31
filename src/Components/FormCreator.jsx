@@ -10,11 +10,12 @@ export default function FormCreator () {
     const navigate = useNavigate();
     const { elements, setForm } = useContext(MyContext);
     let display = "none";
+    
     if (elements.length > 0) display = "block";
 
     const handleClick = () => {
         let formHTML = ``;
-        
+
         elements.forEach((e) => {
             const formData = Object.fromEntries(new FormData(e.formRef.current));
 
