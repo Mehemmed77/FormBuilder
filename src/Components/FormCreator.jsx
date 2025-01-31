@@ -14,6 +14,7 @@ export default function FormCreator () {
 
     const handleClick = () => {
         let formHTML = ``;
+        
         elements.forEach((e) => {
             const formData = Object.fromEntries(new FormData(e.formRef.current));
 
