@@ -1,16 +1,21 @@
-import { Box } from "@mui/material"
-import { useRef, useState } from "react"
+import { useRef } from "react";
+import { useContext } from "react";
+import MyContext from "./Context";
 
 export default function FormHeading () {
     const ref = useRef();
-    const [value, setValue] = useState("Untitled Form");
+    const {formHeading, setFormHeading} = useContext(MyContext);
 
     const handleChange = () => {
-        setValue(ref.current.value);
+        setFormHeading({...formHeading, title: ref.current.value});
+    }
+
+    const handleDescription = (e) => {
+        setFormHeading({...formHeading, description: e.target.value});
     }
 
     const handleBlur = () => {
-        if (value === "") setValue("Untitled Form");
+        if (formHeading.title === "") setFormHeading({...formHeading, title: "Untitled Form"});
     }
 
     return <>
@@ -19,10 +24,10 @@ export default function FormHeading () {
                 <h2>Form Generator</h2>
             </div>
             <div className="inputTitle">
-                <input ref={ref} type="text" value={value} placeholder="Name of the Form" onChange={handleChange} onBlur={handleBlur} />
+                <input ref={ref} type="text" value={formHeading.title} placeholder="Name of the Form" onChange={handleChange} onBlur={handleBlur} />
             </div>
             <div className="inputDescription">
-                <textarea name="" placeholder="Enter form description"></textarea>
+                <textarea onChange={(e) => handleDescription(e)} placeholder="Enter form description"></textarea>
             </div>
         </div>
     </>

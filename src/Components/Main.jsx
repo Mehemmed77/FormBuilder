@@ -8,6 +8,7 @@ import Form from "./ResultForm";
 export default function Main() {
     const [elements, setElements] = useState([]);
     const [form, setForm] = useState("");
+    const [formHeading, setFormHeading] = useState({title: "Untitled Form", description: ""});
 
     const addElement = useCallback((element) =>
         {
@@ -21,7 +22,7 @@ export default function Main() {
     }, []);
 
     return <>
-        <MyContext.Provider value={{elements, addElement, deleteElement, form, setForm}}>
+        <MyContext.Provider value={{elements, addElement, deleteElement, form, setForm, formHeading, setFormHeading}}>
             <BrowserRouter>
                 <Routes>
                     <Route path="create/" element=

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function FormCreator () {
     const navigate = useNavigate();
-    const { elements, setForm } = useContext(MyContext);
+    const { elements, setForm, formHeading } = useContext(MyContext);
     let display = "none";
 
     if (elements.length > 0) display = "block";
@@ -22,7 +22,7 @@ export default function FormCreator () {
             formHTML += `<div>\n${CreateHTML(e.id, e.inputType, formData)}\n</div>\n\n`;
         });
 
-        setForm(formHTML);
+        setForm(`<h1 id="title">${formHeading.title}</h1>\n\n<p id="description">${formHeading.description}</p>\n\n<form>\n\n${formHTML}</form>`);
 
         navigate("/form/");
         
