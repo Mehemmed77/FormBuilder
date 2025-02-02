@@ -13,6 +13,7 @@ export default function Form() {
 
     const handleCopy = async () => {
         try {
+            
             await navigator.clipboard.writeText(form);
             console.log('Content copied to clipboard');
           } catch (err) {
