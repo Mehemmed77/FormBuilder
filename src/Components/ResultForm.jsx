@@ -10,6 +10,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import DownloadIcon from '@mui/icons-material/Download';
 
 export default function Form() {
     const {form, formHeading} = useContext(MyContext);
@@ -26,8 +27,20 @@ export default function Form() {
         hljs.highlightAll();
     }, []);
 
+    const handleDownload = () => {
+        const blob = new Blob([form], {type: "text/html"});
+        const url = URL.createObjectURL(blob);
+
+        const dummyA = document.createElement("a");
+        dummyA.href = url;
+        dummyA.download = `${formHeading.title}.html`
+        dummyA.click();
+
+        URL.revokeObjectURL(url);
+    }
+
     const handleClose = (e, r) => {
-        if (e === "clickaway") return;
+        if (r === "clickaway") return;
 
         setOpen(false);
     }
@@ -48,7 +61,7 @@ export default function Form() {
             </div>
             <div className="actions">
                 <Button variant="contained" onClick={handleCopy} sx={{backgroundColor:"rgba(0, 0, 0, 0.71)"}} startIcon={<ContentCopyIcon />}>Copy</Button>
-                <Button variant="contained" sx={{backgroundColor:"rgba(0, 0, 0, 0.71)"}} startIcon={<SaveIcon />}>Save</Button>
+                <Button variant="contained" onClick={handleDownload} sx={{backgroundColor:"rgba(0, 0, 0, 0.71)"}} startIcon={<DownloadIcon />}>Download</Button>
             </div>
         </div>
 

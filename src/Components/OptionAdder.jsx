@@ -10,6 +10,7 @@ export default function OptionAdder () {
 
     const handleClick = () => {
         setOptions([...options, {id: id(), text: text }]);
+        setText("");
     }
 
     const handleChange = (id, text) => {
@@ -27,7 +28,7 @@ export default function OptionAdder () {
     return <>
         <div className="optionMainContainer">
             <div className="innerDiv" style={{width:"80%", justifyContent: "center"}}>
-                <TextField label="Add Option" sx={{width:"90%"}} onChange={handleText} /> <AddCircleIcon sx={{cursor: "pointer"}} onClick={handleClick} />
+                <TextField label="Add Option" sx={{width:"90%"}} onChange={handleText} value={text} /> <AddCircleIcon sx={{cursor: "pointer"}} onClick={handleClick} />
             </div>
             
             {options.map( (e) => {
