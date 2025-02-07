@@ -12,6 +12,7 @@ export default function OptionAdder () {
         setOptions([...options, {id: id(), text: text }]);
         setText("");
     }
+    
 
     const handleChange = (id, text) => {
         setOptions([...options.filter( (e) => e.id !== id ), {id: id, text: text}]);
