@@ -7,7 +7,7 @@ export default function CreateHTML(id, inputType, data) {
     }
 
     if(inputType === "long text") {
-        inputText = `    <label for="${id.slice(0,7)}"> ${data.label}</label>\n    <textarea placeholder="${data.placeholder}" value="${data.value}"${attributes}id="${id.slice(0,7)}"></textarea>`    
+        inputText = `    <label for="${id.slice(0,7)}"> ${data.label}</label>\n    <textarea placeholder="${data.placeholder}" ${attributes}id="${id.slice(0,7)}">${data.value}</textarea>`    
     }
 
     if(inputType === "radio") {
@@ -15,7 +15,7 @@ export default function CreateHTML(id, inputType, data) {
     }
 
     if(inputType === "checkbox") {
-        inputText = `    <input type="checkbox" value="${data.value}"${attributes}id="${id.slice(0,7)}" />\n    <label for="${id.slice(0,7)}"> ${data.label} </label>`
+        inputText = `    <input type="checkbox" value="${data.value}" ${attributes}id="${id.slice(0,7)}" />\n    <label for="${id.slice(0,7)}"> ${data.label} </label>`
     }
 
     if (inputType === "options") {
