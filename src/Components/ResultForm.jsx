@@ -6,26 +6,27 @@ import MyContext from "./Context";
 import "../css/pre.css";
 import Button from '@mui/material/Button';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import SaveIcon from '@mui/icons-material/Save';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import DownloadIcon from '@mui/icons-material/Download';
+import useOpen from "./useOpen";
 
 export default function Form() {
     const {form, formHeading} = useContext(MyContext);
-    const [open, setOpen] = useState(false);
-
-    const handleCopy = async () => {
-        setOpen(true);
-        try {
-            await navigator.clipboard.writeText(form);
-          } catch (err) {}
-    }
+    const [open1, setOpen1] = useOpen();
+    const [open2, setOpen2] = useOpen();
 
     useEffect(() => {
         hljs.highlightAll();
     }, []);
+
+    const handleCopy = async () => {
+        setOpen1(true);
+        try {
+            await navigator.clipboard.writeText(form);
+          } catch (err) {}
+    }
 
     const handleDownload = () => {
         const blob = new Blob([form], {type: "text/html"});
@@ -37,17 +38,11 @@ export default function Form() {
         dummyA.click();
 
         URL.revokeObjectURL(url);
+        setOpen2(true);
     }
 
-    const handleClose = (e, r) => {
-        if (r === "clickaway") return;
-
-        setOpen(false);
-    }
-
-    const action = <React.Fragment >
-        <IconButton size="small" color="inherit" onClick={handleClose}>
-        <CloseIcon fontSize="small" /></IconButton></React.Fragment>
+    const actionForCopy = <React.Fragment><IconButton size="small" color="inherit" onClick={() => setOpen1(false)}><CloseIcon fontSize="small" /></IconButton></React.Fragment>
+    const actionForDownload = <React.Fragment><IconButton size="small" color="inherit" onClick={() => setOpen2(false)}><CloseIcon fontSize="small" /></IconButton></React.Fragment>
 
     return <>
         <div className="formContainer">
@@ -65,6 +60,7 @@ export default function Form() {
             </div>
         </div>
 
-        <Snackbar open={open} autoHideDuration={3000} sx={{width:"200px"}} onClose={handleClose} message="Content copied" action={action}/>
+        <Snackbar open={open1} autoHideDuration={3000} sx={{width:"200px"}} onClose={() => setOpen1(false)} message="Content copied" action={actionForCopy}/>
+        <Snackbar open={open2} autoHideDuration={3000} sx={{width:"200px"}} onClose={() => setOpen2(false)} message="Download started" action={actionForDownload}/>
     </>
     };
